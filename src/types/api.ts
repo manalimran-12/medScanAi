@@ -14,6 +14,17 @@ export interface User {
   createdAt: string;
 }
 
+export interface ShapFeature {
+  feature: string;
+  value: number;
+  shapValue: number;
+  effect: "positive" | "negative";
+}
+
+export type Explanation =
+  | { type: "gradcam"; description?: string | null }
+  | { type: "shap"; features: ShapFeature[]; description?: string | null };
+
 export interface Prediction {
   id: string;
   userId: string;
@@ -25,6 +36,8 @@ export interface Prediction {
   createdAt: string;
   durationMs: number | null;
   errorMessage: string | null;
+  explanation: Explanation | null;
+  explanationImageUrl: string | null;
 }
 
 export interface Paginated<T> {
