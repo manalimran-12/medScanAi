@@ -10,8 +10,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
 import { predictionsApi } from "@/lib/api";
+import { withApiBase } from "@/lib/images";
 import { formatDate, formatConfidence, humanizeModelType } from "@/lib/utils";
 import { ResultPanel } from "@/components/predictions/result-panel";
+import { ExplanationPanel } from "@/components/predictions/explanation-panel";
 
 export default function PredictionDetailPage() {
   const params = useParams<{ id: string }>();
@@ -87,6 +89,8 @@ export default function PredictionDetailPage() {
 
       <ResultPanel prediction={p} />
 
+      {p.explanation && <ExplanationPanel prediction={p} />}
+
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
@@ -95,7 +99,7 @@ export default function PredictionDetailPage() {
           <CardContent>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={p.imageUrl}
+              src={withApiBase(p.imageUrl)}
               alt="prediction input"
               className="w-full rounded-md border bg-muted object-contain"
               style={{ maxHeight: 400 }}

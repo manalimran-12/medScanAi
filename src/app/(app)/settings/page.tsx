@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { profileSchema, type ProfileInput } from "@/lib/schemas";
 import { usersApi } from "@/lib/api";
+import { withApiBase } from "@/lib/images";
 import { useAuth } from "@/providers/auth-provider";
 
 export default function SettingsProfilePage() {
@@ -70,7 +71,7 @@ export default function SettingsProfilePage() {
         <CardContent>
           <div className="flex items-center gap-6">
             <Avatar className="h-20 w-20">
-              {user.avatarUrl && <AvatarImage src={user.avatarUrl} alt={user.name ?? user.email} />}
+              {user.avatarUrl && <AvatarImage src={withApiBase(user.avatarUrl)} alt={user.name ?? user.email} />}
               <AvatarFallback className="bg-primary/10 text-xl font-semibold text-primary">{initials}</AvatarFallback>
             </Avatar>
             <div>

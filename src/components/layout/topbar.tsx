@@ -16,6 +16,7 @@ import {
 import { useAuth } from "@/providers/auth-provider";
 import { ThemeToggle } from "./theme-toggle";
 import { Badge } from "@/components/ui/badge";
+import { withApiBase } from "@/lib/images";
 
 export function Topbar() {
   const { user, logout } = useAuth();
@@ -50,7 +51,7 @@ export function Topbar() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm" className="gap-2 px-2">
               <Avatar className="h-8 w-8">
-                {user.avatarUrl && <AvatarImage src={user.avatarUrl} alt={user.name ?? user.email} />}
+                {user.avatarUrl && <AvatarImage src={withApiBase(user.avatarUrl)} alt={user.name ?? user.email} />}
                 <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">{initials}</AvatarFallback>
               </Avatar>
               <span className="hidden text-sm font-medium sm:inline">{user.name ?? user.email}</span>
