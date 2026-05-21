@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Search, ShieldCheck, Shield, UserX, UserCheck, Loader2 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Search, ShieldCheck, Shield, UserX, UserCheck } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

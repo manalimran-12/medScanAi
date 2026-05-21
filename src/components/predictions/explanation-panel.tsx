@@ -43,7 +43,7 @@ export function ExplanationPanel({ prediction }: { prediction: Prediction }) {
         <Alert>
           <Info className="h-4 w-4" />
           <AlertDescription className="text-xs">
-            Explanations are informational aids. They reflect the model's internal reasoning, not medical ground truth.
+            Explanations are informational aids. They reflect the model&apos;s internal reasoning, not medical ground truth.
             Always consult a qualified clinician for diagnostic decisions.
           </AlertDescription>
         </Alert>
