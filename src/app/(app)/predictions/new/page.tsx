@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { ArrowRight, Loader2, Sparkles } from "lucide-react";
@@ -17,6 +17,14 @@ import type { AxiosError } from "axios";
 const VALID_MODELS: ModelType[] = ["PNEUMONIA", "BREAST", "HEART", "LIVER"];
 
 export default function NewPredictionPage() {
+  return (
+    <Suspense fallback={null}>
+      <NewPredictionForm />
+    </Suspense>
+  );
+}
+
+function NewPredictionForm() {
   const router = useRouter();
   const params = useSearchParams();
   const preset = params.get("model");
