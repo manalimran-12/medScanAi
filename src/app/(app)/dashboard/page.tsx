@@ -13,7 +13,6 @@ import {
   XCircle,
   AlertTriangle,
   Zap,
-  Clock,
   Sparkles,
   Info,
 } from "lucide-react";
