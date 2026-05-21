@@ -2,13 +2,21 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { CheckCircle2, XCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { authApi } from "@/lib/api";
 
 export default function VerifyEmailPage() {
+  return (
+    <Suspense fallback={null}>
+      <VerifyEmailCard />
+    </Suspense>
+  );
+}
+
+function VerifyEmailCard() {
   const params = useSearchParams();
   const token = params.get("token");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
